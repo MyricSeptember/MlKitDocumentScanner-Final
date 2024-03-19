@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var numberOfPages: String
     private lateinit var documentName: String
 
-    //TODO Step 2: Add the Activity Result Laucher variable
+    //TODO Step 2: Add the Activity Result Launcher variable
     private lateinit var scannerLauncher: ActivityResultLauncher<IntentSenderRequest>
 
 
@@ -233,7 +233,7 @@ class MainActivity : ComponentActivity() {
                 supportingText = {
                     if (validNumberOfPages) {
                         Text(
-                            text = "Page number should be < 0",
+                            text = "Page number should be > 0",
                             color = Color.Red
                         )
                     }
@@ -259,8 +259,8 @@ class MainActivity : ComponentActivity() {
 
             Button(onClick = {
                 //TODO Step 9: Uncomment the scan button code
-                if (numberOfPages.isEmpty() || numberOfPages.toInt() == 0 || documentName.isEmpty()) {
-                    validNumberOfPages = numberOfPages.isEmpty() || numberOfPages.toInt() == 0
+                if (numberOfPages.isEmpty() || numberOfPages.toInt() <= 0 || documentName.isEmpty()) {
+                    validNumberOfPages = numberOfPages.isEmpty() || numberOfPages.toInt() <= 0
                     validDocumentName = documentName.isEmpty()
                 } else {
                     validNumberOfPages = false
